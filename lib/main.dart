@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tasks_app/app/data/services/storage/services.dart';
+import 'package:tasks_app/app/modules/home/binding.dart';
 import 'package:tasks_app/app/modules/home/view.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() async {
   // Set up the SettingsController, which will glue user settings to multiple
@@ -32,9 +34,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: "Tasks app",
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+      initialBinding: HomeBinding(),
+      builder: EasyLoading.init(),
     );
   }
 }
