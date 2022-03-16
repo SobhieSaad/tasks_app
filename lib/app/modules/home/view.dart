@@ -13,30 +13,46 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: ListView(
-      children: [
-        Padding(
-          padding: EdgeInsets.all(4.0.wp),
-          child: Text(
-            'My List',
-            style: TextStyle(fontSize: 24.0.sp, fontWeight: FontWeight.bold),
-          ),
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(4.0.wp),
+              child: Text(
+                'My List',
+                style:
+                    TextStyle(fontSize: 24.0.sp, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Obx(
+              () => GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
+                children: [
+                  ...controller.tasks
+                      .map((element) => LongPressDraggable(
+                          onDragStarted: () => controller.changeDeleting(true),
+                          onDraggableCanceled: (_, __) =>
+                              controller.changeDeleting(false),
+                          onDragEnd: (_) => controller.changeDeleting(false),
+                          feedback: Opacity(
+                            opacity: 0.8,
+                            child: TaskCard(task: element),
+                          ),
+                          child: TaskCard(task: element)))
+                      .toList(),
+                  AddCard(),
+                ],
+              ),
+            )
+          ],
         ),
-        Obx(
-          () => GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            physics: const ClampingScrollPhysics(),
-            children: [
-              ...controller.tasks
-                  .map((element) => TaskCard(task: element))
-                  .toList(),
-              AddCard(),
-            ],
-          ),
-        )
-      ],
-    )));
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }
