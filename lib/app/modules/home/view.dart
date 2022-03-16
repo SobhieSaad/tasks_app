@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:tasks_app/app/core/values/colors.dart';
 import 'package:tasks_app/app/data/models/task.dart';
@@ -32,6 +33,7 @@ class HomePage extends GetView<HomeController> {
                 children: [
                   ...controller.tasks
                       .map((element) => LongPressDraggable(
+                          data: element,
                           onDragStarted: () => controller.changeDeleting(true),
                           onDraggableCanceled: (_, __) =>
                               controller.changeDeleting(false),
@@ -49,9 +51,20 @@ class HomePage extends GetView<HomeController> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
+      floatingActionButton: DragTarget<Task>(
+        builder: (_, __, ____) {
+          return Obx(
+            () => FloatingActionButton(
+              backgroundColor: controller.deleting.value ? Colors.red : blue,
+              onPressed: () {},
+              child: Icon(controller.deleting.value ? Icons.delete : Icons.add),
+            ),
+          );
+        },
+        onAccept: (task) {
+          controller.deleteTask(task);
+          EasyLoading.showSuccess("Delete successful");
+        },
       ),
     );
   }
