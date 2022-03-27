@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:tasks_app/app/data/models/task.dart';
 import 'package:tasks_app/app/data/services/storage/repository.dart';
@@ -78,7 +79,35 @@ class HomeController extends GetxController {
       var status = todo['done'];
       if (status == true) {
         doneTodos.add(todo);
+      } else {
+        doingTodos.add(todo);
       }
     }
+  }
+
+  bool addTodo(String title) {
+    var todo = {'title': title, 'done': false};
+    if (doingTodos
+        .any((element) => mapEquals<String, dynamic>(todo, element))) {
+      return false;
+    }
+
+    var doneTodo = {'title': title, 'done': true};
+    if (doneTodos
+        .any((element) => mapEquals<String, dynamic>(doneTodo, element))) {
+      return false;
+    }
+
+    doingTodos.add(todo);
+    return true;
+  }
+
+  void updateTodos() {
+    var newTodos = <Map<String, dynamic>>[];
+    newTodos.addAll([...doingTodos, ...doneTodos]);
+    var newTask = task.value!.copyWith(todos: newTodos);
+    int oldIndex = tasks.indexOf(task.value);
+    tasks[oldIndex] = newTask;
+    tasks.refresh();
   }
 }
