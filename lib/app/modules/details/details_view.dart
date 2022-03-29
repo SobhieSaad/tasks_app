@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:tasks_app/app/core/utils/extension.dart';
 import 'package:tasks_app/app/modules/home/controller.dart';
+import 'package:tasks_app/app/modules/home/widgets/doing_list.dart';
 
 class DetailPage extends StatelessWidget {
   final homeController = Get.find<HomeController>();
@@ -137,6 +138,7 @@ class DetailPage extends StatelessWidget {
             },
           ),
         ),
+        DoingList(),
       ]),
     ));
   }
