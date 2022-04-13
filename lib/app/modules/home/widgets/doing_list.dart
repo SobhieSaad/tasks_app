@@ -13,7 +13,7 @@ class DoingList extends StatelessWidget {
             homeController.doneTodos.isEmpty
         ? Column(children: [
             Image.asset(
-              'assets/images/task.jpg',
+              'assets/images/task.png',
               fit: BoxFit.cover,
               width: 65.0.wp,
             ),

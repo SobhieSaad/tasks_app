@@ -21,7 +21,7 @@ class DoneList extends StatelessWidget {
                   horizontal: 5.0.wp,
                 ),
                 child: Text(
-                  'Completed(${homeController.doneTodos.length}',
+                  'Completed(${homeController.doneTodos.length})',
                   style: TextStyle(
                     fontSize: 14.0.sp,
                     color: Colors.grey,
