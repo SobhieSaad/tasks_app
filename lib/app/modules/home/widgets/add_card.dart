@@ -62,10 +62,8 @@ class AddCard extends StatelessWidget {
                                       selected: homeConroller.chipIndex.value ==
                                           index,
                                       onSelected: (bool selected) {
-                                        homeConroller.chipIndex.value ==
-                                                selected
-                                            ? index
-                                            : 0;
+                                        homeConroller.chipIndex.value =
+                                            selected ? index : 0;
                                       },
                                     );
                                   }))
@@ -107,7 +105,7 @@ class AddCard extends StatelessWidget {
             homeConroller.changeChipIndex(0);
           },
           child: DottedBorder(
-            color: Colors.grey[400],
+            color: Colors.grey,
             dashPattern: const [8, 4],
             child: Center(
               child: Icon(
