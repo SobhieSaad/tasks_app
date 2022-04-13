@@ -30,7 +30,7 @@ apps](https://flutter.dev/docs/development/accessibility-and-localization/intern
 
 ### Screenshots
 
-<img src="./screenshoots/1.jpg" width="100px" height="200px"/>
+<img src="../../screenshoots/1.jpg" width="100px" height="200px"/>
 </br>
 
 <img src="/screenshoots/2.jpg" width="100px" height="200px"/>
