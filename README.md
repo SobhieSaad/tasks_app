@@ -30,20 +30,20 @@ apps](https://flutter.dev/docs/development/accessibility-and-localization/intern
 
 ### Screenshots
 
-<img src="../../screenshoots/1.jpg" width="100px" height="200px"/>
+<img src="../../screenshots/1.jpg" width="200px" height="400px"/>
 </br>
 
-<img src="/screenshoots/2.jpg" width="100px" height="200px"/>
+<img src="/screenshots/2.jpg" width="200px" height="400px"/>
 </br>
 
-<img src="/screenshoots/3.jpg" width="100px" height="200px"/>
+<img src="/screenshots/3.jpg" width="200px" height="400px"/>
 </br>
 
-<img src="/screenshoots/4.jpg" width="100px" height="200px"/>
+<img src="/screenshots/4.jpg" width="200px" height="400px"/>
 </br>
 
-<img src="/screenshoots/5.jpg" width="100px" height="200px"/>
+<img src="/screenshots/5.jpg" width="200px" height="400px"/>
 </br>
 
-<img src="/screenshoots/6.jpg" width="100px" height="200px"/>
+<img src="/screenshots/6.jpg" width="200px" height="400px"/>
 </br>
